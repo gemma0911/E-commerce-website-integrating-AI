@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="author" content="mironcoder" />
+<meta name="email" content="mironcoder@gmail.com" />
+<meta name="profile" content="https://themeforest.net/user/mironcoder" />
+<meta name="template" content="greeny" />
+<meta name="title" content="greeny - Ecommerce Food Store HTML Template" />
+<meta name="keywords"
+	content="organic, food, shop, ecommerce, store, html, bootstrap, template, agriculture, vegetables, products, farm, grocery, natural, online" />
+<title>Greeny | Chi tiết sản phẩm</title>
+<link rel="stylesheet" href="fonts/flaticon/flaticon.css" />
+<link rel="stylesheet" href="fonts/icofont/icofont.min.css" />
+<link rel="stylesheet" href="fonts/fontawesome/fontawesome.min.css" />
+<link rel="stylesheet" href="vendor/venobox/venobox.min.css" />
+<link rel="stylesheet" href="vendor/slickslider/slick.min.css" />
+<link rel="stylesheet" href="vendor/niceselect/nice-select.min.css" />
+<link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="css/product-details.css" />
+<style>
+.custom-container {
+	margin: 20px auto;
+	padding: 20px;
+	border: 1px solid #dee2e6;
+	border-radius: 10px;
+	background-color: #f8f9fa;
+	max-width: 500px;
+}
+</style>
+</head>
+<body>
+
+	<!--************************************
+				Header Start
+		*************************************-->
+	<header th:replace="~{/web/fragments/header :: header}"></header>
+	<!--************************************
+				Header End
+		*************************************-->
+
+	<section class="single-banner inner-section"
+		style="background: url(images/showroom-XD-tmdt-Large.jpg) no-repeat center">
+		<div class="container">
+			<h2>Chi tiết sản phẩm</h2>
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a th:href="@{/}">Trang chủ</a></li>
+			</ol>
+		</div>
+	</section>
+
+	<section class="inner-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="details-gallery">
+						<div class="details-label-group">
+							<label class="details-label new">new</label> <label
+								class="details-label off">- [[${product.discount +
+								'%'}]]</label>
+						</div>
+						<ul class="details-preview">
+							<li><img
+								th:src="@{'/loadImage?imageName='+${product.productImage}}"
+								alt="product" /></li>
+						</ul>
+						<ul class="details-thumb">
+							<li><img
+								th:src="@{'/loadImage?imageName='+${product.productImage}}"
+								alt="product" /></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6">
+
+					<div class="details-content">
+						<h3 class="details-name">
+							<a href="#">[[${product.productName}]]</a>
+						</h3>
+						<div class="details-meta">
+							<p>
+								Mã sản phẩm:<span>[[${product.productId}]]</span>
+							</p>
+							<p>
+								Thể loại:<a href="#">[[${product.category.categoryName}]]</a>
+							</p>
+						</div>
+						<div class="details-rating">
+							<i class="active icofont-star"></i><i class="active icofont-star"></i><i
+								class="active icofont-star"></i><i class="active icofont-star"></i>
+							<i class="icofont-star"></i>
+
+						</div>
+						<h3 class="details-price">
+							<del>[[${#numbers.formatDecimal(product.price, 1,
+								'DEFAULT', 0, 'DEFAULT')}+' đ']]</del>
+							<span>[[${#numbers.formatDecimal(product.price -
+								(product.price * product.discount/100), 1, 'DEFAULT', 0,
+								'DEFAULT')}+' đ']]<small>/tranh</small>
+							</span>
+						</h3>
+						<p class="details-desc">[[${product.description}]]</p>
+						<div class="details-list-group">
+							<label class="details-list-title">Xem thêm:</label>
+							<ul class="details-tag-list">
+								<li th:each="item : ${categoryList}"><a
+									th:href="@{/productByCategory(id=${item.categoryId})}">[[${item.categoryName}]]</a>
+								</li>
+							</ul>
+						</div>
+						<div class="details-list-group">
+							<label class="details-list-title">Share:</label>
+							<ul class="details-share-list">
+								<li><a href="javascript:void(0);" class="icofont-facebook"
+									title="Facebook"></a></li>
+								<li><a href="javascript:void(0);" class="icofont-twitter"
+									title="Twitter"></a></li>
+								<li><a href="javascript:void(0);" class="icofont-linkedin"
+									title="Linkedin"></a></li>
+								<li><a href="javascript:void(0);" class="icofont-instagram"
+									title="Instagram"></a></li>
+							</ul>
+						</div>
+						<div class="details-add-group">
+							<a class="product-add1" style="background-color: rgb(0, 0, 0)"
+								title="Thêm giỏ hàng"
+								th:href="@{/addToCart(productId=${product.productId})}"> <i
+								style="color: white" class="fas fa-shopping-basket"></i> <span
+								style="color: white">Thêm giỏ hàng</span>
+							</a>
+
+						</div>
+						<div class="details-action-group">
+							<a class="details-wish" href="javascript:void(0);"
+								title="Yêu thích"> <i class="icofont-heart"></i> <span>Thêm
+									yêu thích</span></a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="inner-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="product-details-frame">
+						<h3 class="frame-title">Mô tả sản phẩm</h3>
+						<div class="tab-descrip">
+							<p>[[${product.description}]]</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="inner-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="product-details-frame">
+						<h3 class="frame-title">Comment</h3>
+						<div class="tab-descrip">
+							<p>User : Sản phẩm lỗi</p>
+						</div>
+						<div class="container mt-5">
+							<div class="custom-container">
+								<form id="commentForm"
+									class="d-flex flex-column align-items-center">
+									<!-- Hidden input field to store the product_id -->
+									<input type="hidden" name="product_id" id="product_id"
+										th:value="${product.productId}" />
+
+									<div class="mb-3 w-100">
+										<label for="content" class="form-label">Comment
+											Content:</label> <input type="text" id="content" name="content"
+											class="form-control border border-primary rounded-pill border-2"
+											placeholder="Enter your comment content here">
+									</div>
+
+									<!-- Add any other input fields for the comment (e.g., user input) -->
+
+									<button type="button" onclick="submitComment()"
+										class="btn btn-primary rounded-pill">Submit Comment</button>
+								</form>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="section newitem-part">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section-heading">
+						<h2>
+							Sản phẩm cùng loại
+							</h3>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<ul class="new-slider slider-arrow">
+						<li th:each="item : ${productByCategory}">
+							<div class="product-card">
+								<div class="product-media">
+									<div class="product-label">
+										<label class="label-text sale">-10%</label> <label
+											class="label-text new">new</label>
+									</div>
+									<button class="product-wish wish">
+										<i class="fas fa-heart"></i>
+									</button>
+									<a th:href="@{/product(id=${item.productId})}"> <img
+										th:src="@{'/loadImage?imageName='+${item.productImage}}"
+										alt="product" />
+									</a>
+									<div class="product-widget">
+										<a href="compare.html" class="fas fa-random"
+											title="Product Compare"></a> <a href="javascript:void(0);"
+											class="fas fa-eye" title="Product View"></a>
+									</div>
+								</div>
+								<div class="product-content">
+									<div class="product-rating">
+										<i class="active icofont-star"></i><i
+											class="active icofont-star"></i><i
+											class="active icofont-star"></i><i
+											class="active icofont-star"></i><i class="icofont-star"></i>
+										<a href="product-video.html">(3)</a>
+									</div>
+									<h6 class="product-name">
+										<a th:href="@{/product(id=${item.productId})}">[[${item.productName}]]</a>
+									</h6>
+									<h6 class="product-price">
+										<del>[[${#numbers.formatDecimal(item.price, 1,
+											'DEFAULT', 0, 'DEFAULT')}+' đ']]</del>
+										<span>[[${#numbers.formatDecimal(item.price -
+											(item.price * item.discount/100), 1, 'DEFAULT', 0,
+											'DEFAULT')}+' đ']]</span>
+									</h6>
+									<button class="product-add" title="Add to Cart"
+										th:href="@{/addToCart(productId=${item.productId})}">
+										<i class="fas fa-shopping-basket"></i><span>Thêm giỏ
+											hàng</span>
+									</button>
+								</div>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--************************************
+				Footer Start
+		*************************************-->
+	<footer class="footer-part">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-xl-3">
+					<div class="footer-widget">
+						<a href="#"><img src="images/logo.png" alt="logo" /></a>
+						<p class="footer-desc">Lorem ipsum dolor sit amet consectetuer
+							adipiscing elit et pellentesque feugiat vitae porttitor at
+							elementum ultricies congue magna.</p>
+						<ul class="footer-social">
+							<li><a class="icofont-facebook" href="#"></a></li>
+							<li><a class="icofont-twitter" href="#"></a></li>
+							<li><a class="icofont-linkedin" href="#"></a></li>
+							<li><a class="icofont-instagram" href="#"></a></li>
+							<li><a class="icofont-pinterest" href="#"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6 col-xl-3">
+					<div class="footer-widget contact">
+						<h3 class="footer-title">contact us</h3>
+						<ul class="footer-contact">
+							<li><i class="icofont-ui-email"></i>
+								<p>
+									<a href="#">support@greeny.com</a><span>info@greeny.com</span>
+								</p></li>
+							<li><i class="icofont-ui-touch-phone"></i>
+								<p>
+									<a href="#">+120 279 532 13</a><span>+120 279 532 14</span>
+								</p></li>
+							<li><i class="icofont-location-pin"></i>
+								<p>
+									7 Green Lake Street Crawfordsville, IN 47933<span>United
+										States</span>
+								</p></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-sm-6 col-xl-3">
+					<div class="footer-widget">
+						<h3 class="footer-title">quick Links</h3>
+						<div class="footer-links">
+							<ul>
+								<li><a href="#">Store Location</a></li>
+								<li><a href="#">Order Tracking</a></li>
+								<li><a href="#">My Account</a></li>
+								<li><a href="#">FAQs</a></li>
+								<li><a href="#">Order History</a></li>
+							</ul>
+							<ul>
+								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Payment Refund</a></li>
+								<li><a href="#">Terms of Use</a></li>
+								<li><a href="#">Help & Support</a></li>
+								<li><a href="#">Flash Sale</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6 col-xl-3">
+					<div class="footer-widget">
+						<h3 class="footer-title">download app</h3>
+						<p class="footer-desc">Lorem ipsum dolor sit amet consectetuer
+							adipiscing elit et pellentesque feugiat vitae porttitor at
+							elementum ultricies congue magna.</p>
+						<div class="footer-app">
+							<a href="#"><img src="images/google-store.png" alt="google" /></a>
+							<a href="#"><img src="images/app-store.png" alt="app" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-end">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4">
+						<p class="footer-end-text">
+							<a href="#">Privacy Policy</a><a href="#">Terms of Use</a>
+						</p>
+					</div>
+					<div class="col-lg-4">
+						<div class="footer-card">
+							<a href="#"><img src="images/payment/jpg/01.jpg"
+								alt="payment" /></a> <a href="#"><img
+								src="images/payment/jpg/02.jpg" alt="payment" /></a> <a href="#"><img
+								src="images/payment/jpg/03.jpg" alt="payment" /></a> <a href="#"><img
+								src="images/payment/jpg/04.jpg" alt="payment" /></a>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<p class="footer-end-text">
+							All Copyrights Reserved by <a href="#">Mironcoder</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script>
+    function submitComment() {
+        var formData = {
+            product_id: document.getElementById("product_id").value,
+            comment: document.getElementById("content").value
+        };
+        var comment = {
+            "comment" : {
+                "content": document.getElementById("content").value,
+                "product" : {
+                	"product_id": parseInt(document.getElementById("product_id").value),
+                }
+            }
+        };
+        fetch('http://127.0.0.1:8000/api/post', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Error:', response.statusText);
+                }
+            })
+            .then(data => {
+                if (data.message === 1) {
+                    alert("Comment toxic");
+                } else if (data.message === 0) {
+                    // If message is 0, call another API to add comment
+                    fetch('http://localhost:8080/addComment', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(comment)
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                alert("Your comment has been successfully submitted!");
+                            } else {
+                                throw new Error('Error:', response.statusText);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                } else {
+                    console.error('Unknown response:', data);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+
+
+	<!--************************************
+				Footer End
+		*************************************-->
+	<script src="vendor/bootstrap/jquery-1.12.4.min.js"></script>
+	<script src="vendor/bootstrap/popper.min.js"></script>
+	<script src="vendor/bootstrap/bootstrap.min.js"></script>
+	<script src="vendor/countdown/countdown.min.js"></script>
+	<script src="vendor/niceselect/nice-select.min.js"></script>
+	<script src="vendor/slickslider/slick.min.js"></script>
+	<script src="vendor/venobox/venobox.min.js"></script>
+	<script src="js/nice-select.js"></script>
+	<script src="js/countdown.js"></script>
+	<script src="js/accordion.js"></script>
+	<script src="js/venobox.js"></script>
+	<script src="js/slick.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
