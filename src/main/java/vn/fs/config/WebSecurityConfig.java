@@ -14,7 +14,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import vn.fs.service.UserDetailService;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Configuration

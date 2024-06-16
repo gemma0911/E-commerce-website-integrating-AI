@@ -35,7 +35,7 @@ import vn.fs.repository.OrderRepository;
 import vn.fs.repository.UserRepository;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Controller

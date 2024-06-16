@@ -19,7 +19,7 @@ import vn.fs.config.PaypalPaymentIntent;
 import vn.fs.config.PaypalPaymentMethod;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Service

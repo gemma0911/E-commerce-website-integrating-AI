@@ -9,7 +9,7 @@ import vn.fs.commom.CommomDataService;
 import vn.fs.entities.User;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Controller

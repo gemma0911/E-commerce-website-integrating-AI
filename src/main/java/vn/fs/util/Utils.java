@@ -3,7 +3,7 @@ package vn.fs.util;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 public class Utils {

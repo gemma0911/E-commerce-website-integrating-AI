@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import vn.fs.entities.Product;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Repository

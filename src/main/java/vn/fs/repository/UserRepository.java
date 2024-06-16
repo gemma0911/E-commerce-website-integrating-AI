@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import vn.fs.entities.User;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Repository

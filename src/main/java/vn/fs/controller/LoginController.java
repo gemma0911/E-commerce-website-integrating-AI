@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import vn.fs.repository.ProductRepository;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Controller

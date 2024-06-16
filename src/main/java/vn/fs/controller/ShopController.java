@@ -26,7 +26,7 @@ import vn.fs.repository.FavoriteRepository;
 import vn.fs.repository.ProductRepository;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Controller

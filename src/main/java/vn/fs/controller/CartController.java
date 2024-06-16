@@ -39,7 +39,7 @@ import vn.fs.service.ShoppingCartService;
 import vn.fs.util.Utils;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Controller

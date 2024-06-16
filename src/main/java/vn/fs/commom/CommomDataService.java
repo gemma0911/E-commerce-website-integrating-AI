@@ -24,7 +24,7 @@ import vn.fs.repository.ProductRepository;
 import vn.fs.service.ShoppingCartService;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Service

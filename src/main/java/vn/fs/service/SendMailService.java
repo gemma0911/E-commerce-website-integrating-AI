@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import vn.fs.dto.MailInfo;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Service

@@ -19,7 +19,7 @@ import vn.fs.dto.MailInfo;
 import vn.fs.service.SendMailService;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Service

@@ -11,7 +11,7 @@ import vn.fs.entities.Product;
 import vn.fs.service.ShoppingCartService;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Service

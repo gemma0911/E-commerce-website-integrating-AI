@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Data

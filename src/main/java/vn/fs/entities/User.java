@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.JoinColumn;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @SuppressWarnings("serial")

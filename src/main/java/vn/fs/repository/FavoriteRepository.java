@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import vn.fs.entities.Favorite;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Repository

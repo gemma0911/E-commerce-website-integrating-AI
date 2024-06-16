@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * @author DongTHD
+ * @author Quang Thang
  *
  */
 @Entity
