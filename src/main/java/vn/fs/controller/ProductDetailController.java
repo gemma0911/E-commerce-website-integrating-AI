@@ -1,5 +1,6 @@
 package vn.fs.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.apache.poi.ss.usermodel.Comment;
@@ -14,6 +15,7 @@ import vn.fs.entities.Product;
 import vn.fs.entities.User;
 import vn.fs.repository.CommentRepository;
 import vn.fs.repository.ProductRepository;
+import vn.fs.repository.UserRepository;
 
 /**
  * @author Quang Thang
@@ -31,15 +33,17 @@ public class ProductDetailController extends CommomController{
 	@Autowired
 	CommentRepository commentRepository;
 
+	@Autowired
+	UserRepository userRepository;
+	
 	@GetMapping(value = "productDetail")
-	public String productDetail(@RequestParam("id") Long id, Model model, User user) {
-
+	public String productDetail(@RequestParam("id") Long id, Model model, User user,Principal principal) {
+		
 		Product product = productRepository.findById(id).orElse(null);
 		model.addAttribute("product", product);
 
 		commomDataService.commonData(model, user);
 		listProductByCategory10(model, product.getCategory().getCategoryId());
-
 		
 		List<vn.fs.entities.Comment> listComment = commentRepository.selectComment(id);
 		model.addAttribute("listComment", listComment);
